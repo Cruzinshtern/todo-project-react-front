@@ -11,8 +11,6 @@ function App() {
   return (
     <>
       <Navbar />
-      <div className="bg-red-500 text-white p-4 text-xl">Проверка Tailwind</div>
-
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/list" element={<TodoListPage />} />
