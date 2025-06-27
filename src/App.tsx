@@ -1,5 +1,5 @@
 import './App.css'
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import HomePage from './pages/HomePage.tsx';
 import TodoListPage from './pages/TodoList.tsx';
 import NotFoundPage from './pages/NotFoundPage.tsx';
@@ -10,10 +10,12 @@ import Register from './features/auth/Register.tsx';
 import Login from './features/auth/Login.tsx';
 
 function App() {
+  const location = useLocation();
+  const hideNavbar = location.pathname.startsWith('/auth');
 
   return (
     <>
-      <Navbar />
+      { hideNavbar || <Navbar /> }
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/list" element={<TodoListPage />} />
