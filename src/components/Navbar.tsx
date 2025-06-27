@@ -5,9 +5,9 @@ export default function Navbar() {
         <div className="flex w-full justify-between items-center">
             <div>Todo Project</div>
             <nav>
-                <ul className="flex gap-2 list-none text-red-500">
+                <ul className="flex gap-2 list-none">
                     <li>
-                        <Link to="/" className="no-underline text-red-500">Home</Link>
+                        <Link to="/" className="no-underline">Home</Link>
                     </li>
                     <li>
                         <Link to="/list" className="no-underline">Todo List</Link>
