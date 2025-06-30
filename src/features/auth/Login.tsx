@@ -6,6 +6,7 @@ import LocalStorageService from '../../services/localStorage.service';
 import ToastService from '../../services/toast.service';
 import { loginDefaultErrorMsg, loginSuccessMsg } from '../../messages/auth.message';
 import Button from '../../components/Button';
+import { USER_TOKEN } from '../../constants/constants';
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -17,7 +18,7 @@ export default function Login() {
     try {
       const { token } = await AuthService.login({ email, password });
       if (token) {
-        LocalStorageService.setItem('token', token);
+        LocalStorageService.setItem(USER_TOKEN, token);
         await navigate('/');
         ToastService.success(loginSuccessMsg);
       } else {

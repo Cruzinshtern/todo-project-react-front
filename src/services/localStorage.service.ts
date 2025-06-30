@@ -16,6 +16,14 @@ const LocalStorageService = {
   getItem(key: string): string | null {
     return localStorage.getItem(key);
   },
+
+  /**
+   * Removes an item from the local storage.
+   * @param key Name of the key
+   */
+  removeItem(key: string): void {
+    localStorage.removeItem(key);
+  },
 };
 
 export default LocalStorageService;
