@@ -8,6 +8,7 @@ import SerttingsPage from './pages/SettingsPage.tsx';
 import AuthPage from './pages/AuthPage.tsx';
 import Register from './features/auth/Register.tsx';
 import Login from './features/auth/Login.tsx';
+import { Toaster } from 'react-hot-toast';
 
 function App() {
   const location = useLocation();
@@ -30,6 +31,7 @@ function App() {
         </Route>
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
+      <Toaster />
     </>
   )
 }
