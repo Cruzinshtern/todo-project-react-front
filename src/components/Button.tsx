@@ -2,26 +2,26 @@
 import React from 'react';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  /** 
-   * button content (text, icons, etc.) 
-  */
-  children: React.ReactNode; 
-  /** 
+  /**
+   * button content (text, icons, etc.)
+   */
+  children: React.ReactNode;
+  /**
    * style buttons (e.g. "primary", "secondary", "danger")
-  */
+   */
   variant?: 'primary' | 'secondary' | 'danger' | 'ghost';
-  /** 
+  /**
    * determine buttnon style depending on general class
-  */  
+   */
   size?: 'sm' | 'md' | 'lg';
-  /** 
+  /**
    * add more taiwind or other classes
-  */
+   */
   className?: string;
-  /** 
+  /**
    * set disable status when necessary
-  */
-  disabled?: boolean; 
+   */
+  disabled?: boolean;
 }
 
 export default function Button({
@@ -32,7 +32,8 @@ export default function Button({
   disabled = false,
   ...rest // Other button's HTML-attribute (onClick, type, etc.)
 }: ButtonProps) {
-  const baseStyles = 'inline-flex items-center justify-center font-medium rounded-md transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 cursor-pointer';
+  const baseStyles =
+    'inline-flex items-center justify-center font-medium rounded-md transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 cursor-pointer';
 
   const variantStyles = {
     primary: 'bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500',
@@ -58,4 +59,4 @@ export default function Button({
       {children}
     </button>
   );
-};
+}

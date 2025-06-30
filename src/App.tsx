@@ -1,4 +1,4 @@
-import './App.css'
+import './App.css';
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import HomePage from './pages/HomePage.tsx';
 import TodoListPage from './pages/TodoList.tsx';
@@ -16,7 +16,7 @@ function App() {
 
   return (
     <>
-      { hideNavbar || <Navbar /> }
+      {hideNavbar || <Navbar />}
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/list" element={<TodoListPage />} />
@@ -33,7 +33,7 @@ function App() {
       </Routes>
       <Toaster />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

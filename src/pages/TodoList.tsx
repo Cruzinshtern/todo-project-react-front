@@ -1,7 +1,3 @@
 export default function TodoListPage() {
-    return (
-      <div>
-        TodoList
-      </div>
-    );
-  }
+  return <div>TodoList</div>;
+}

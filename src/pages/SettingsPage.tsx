@@ -1,7 +1,3 @@
 export default function SerttingsPage() {
-    return (
-      <div>
-        SerttingsPage
-      </div>
-    );
-  }
+  return <div>SerttingsPage</div>;
+}
