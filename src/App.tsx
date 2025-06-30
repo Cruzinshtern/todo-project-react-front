@@ -2,7 +2,7 @@ import './App.css';
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import HomePage from './pages/HomePage.tsx';
 import TodoListPage from './pages/TodoList.tsx';
-import TodoCreatePage from './pages/TodoCreate.tsx';
+import TodoDesignerPage from './pages/TodoDesignerPage.tsx';
 import NotFoundPage from './pages/NotFoundPage.tsx';
 import Navbar from './features/Navbar.tsx';
 import SerttingsPage from './pages/SettingsPage.tsx';
@@ -21,7 +21,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/list" element={<TodoListPage />} />
-        <Route path="/create" element={<TodoCreatePage />} />
+        <Route path="/todo" element={<TodoDesignerPage />} />
         <Route path="/settings" element={<SerttingsPage />} />
         <Route path="/auth" element={<AuthPage />}>
           <Route path="login" element={<Login />} />

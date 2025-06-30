@@ -8,9 +8,9 @@ export const NAV_ITEMS: NavItem[] = [
     link: '/',
   },
   {
-    key: 'todoCreate',
-    value: 'Create Todo',
-    link: '/create',
+    key: 'todoDesigner',
+    value: 'Todo',
+    link: '/todo',
   },
   {
     key: 'todoList',
