@@ -1,6 +1,8 @@
 import { FiEdit, FiBookmark, FiTrash } from 'react-icons/fi';
 import type { TodoInputProp } from '../../interfaces/todo.interface';
 import Badge from '../../components/Badge';
+import { formatDate } from '../../helpers/formatDate.helper';
+import { formatStatus } from '../../helpers/formatStatus.helper';
 
 export default function TodoTileItem({ todo }: TodoInputProp) {
   return (
@@ -26,27 +28,15 @@ export default function TodoTileItem({ todo }: TodoInputProp) {
       </div>
       <div className="flex gap-2">
         <span>Status:</span>
-        <span>{todo.status}</span>
+        <span>{formatStatus(todo.status)}</span>
       </div>
       <div className="flex gap-2">
         <span>Created at:</span>
-        <span>
-          {new Date(todo.created_at).toLocaleDateString('en-US', {
-            year: 'numeric',
-            month: 'short',
-            day: '2-digit',
-          }) || 'N/A'}
-        </span>
+        <span>{todo.created_at ? formatDate(todo.created_at) : 'N/A'}</span>
       </div>
       <div className="flex gap-2">
-        <span>Due date:</span>
-        <span>
-          {new Date(todo.start_at).toLocaleDateString('en-US', {
-            year: 'numeric',
-            month: 'short',
-            day: '2-digit',
-          }) || 'N/A'}
-        </span>
+        <span>Start date:</span>
+        <span>{todo.start_at ? formatDate(todo.start_at) : 'N/A'}</span>
       </div>
     </div>
   );
