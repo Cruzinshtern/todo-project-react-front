@@ -3,6 +3,7 @@ import { useGetTodosQuery } from '../store/todosApi';
 import type { DisplayType, Tab } from '../interfaces/todo.interface';
 import { useSearchParams } from 'react-router-dom';
 import TabPanel from '../features/TabPanel';
+import { TODO_DISPLAY_TABS } from '../constants/constants';
 
 const defaultDisplayType: DisplayType = 'tiles';
 
@@ -12,10 +13,7 @@ export default function TodoListPage() {
   const [displayType, setDisplayType] = useState(defaultDisplayType);
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const displayTypeArr: Tab[] = [
-    { key: 'tiles', value: 'Tiles' },
-    { key: 'table', value: 'Table' },
-  ];
+  const displayTypeArr: Tab[] = TODO_DISPLAY_TABS;
 
   const { data, error, isLoading, isFetching } = useGetTodosQuery({ page, limit });
 
