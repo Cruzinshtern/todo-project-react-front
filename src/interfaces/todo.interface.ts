@@ -1,3 +1,6 @@
+import type React from 'react';
+import type { IconBaseProps } from 'react-icons';
+
 export interface CreateTodoRequest {
   title: string;
   description?: string;
@@ -31,6 +34,16 @@ export interface Todo {
   created_at: string;
   start_at: string;
   created_by: string;
+}
+
+export interface TodoInputProp {
+  todo: Todo;
+}
+
+export interface BadgeInputProp {
+  color: 'blue' | 'yellow' | 'red';
+  size: number;
+  children: React.ReactElement<IconBaseProps>;
 }
 
 export interface PaginatedTodosResponse {

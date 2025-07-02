@@ -29,7 +29,7 @@ export default function TodoListPage() {
     if (error) {
       console.error('Произошла ошибка при загрузке тудушек:', error);
     }
-  }, [data]);
+  }, [data, error, isLoading, isFetching]);
 
   useEffect(() => {
     searchParams.set('view', displayType);
@@ -46,8 +46,10 @@ export default function TodoListPage() {
         onTabChange={(key) => setDisplayType(key as DisplayType)}
         label="Display type"
       />
-      {displayType === 'tiles' && <TodoTiles todos={todos} />}
-      {displayType === 'table' && <TodoTable todos={todos} />}
+      <div className="p-4">
+        {displayType === 'tiles' && <TodoTiles todos={todos} />}
+        {displayType === 'table' && <TodoTable todos={todos} />}
+      </div>
     </>
   );
 }

@@ -49,7 +49,7 @@ export const todosApi = createApi({
     // Mutation: add new todo
     addTodo: builder.mutation<Todo, Partial<Todo>>({
       query: (newTodo) => ({
-        url: '/tasks',
+        url: '/tasks/create',
         method: 'POST',
         body: newTodo,
       }),

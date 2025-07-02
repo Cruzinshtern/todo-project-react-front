@@ -2,19 +2,20 @@ import { useState } from 'react';
 import Input from '../../components/Input';
 import Textarea from '../../components/Textarea';
 import Button from '../../components/Button';
-import TodoService from '../../services/todo.service';
 import ToastService from '../../services/toast.service';
 import { todoCreateDefaultErrorMsg, todoCreateSuccessMsg } from '../../messages/todo.message';
+import { useAddTodoMutation } from '../../store/todosApi';
 
 export default function CreateTodo() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [startAt, setStartAt] = useState('');
+  const [addTodo, { isLoading }] = useAddTodoMutation();
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     try {
-      await TodoService.createTodo({ title, description, start_at: startAt });
+      await addTodo({ title, description, start_at: startAt }).unwrap();
       ToastService.success(todoCreateSuccessMsg);
     } catch (error) {
       ToastService.error(todoCreateDefaultErrorMsg);
