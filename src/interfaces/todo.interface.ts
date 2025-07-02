@@ -1,5 +1,6 @@
 import type React from 'react';
 import type { IconBaseProps } from 'react-icons';
+import type { TableColumn } from './table.interface';
 
 export interface CreateTodoRequest {
   title: string;
@@ -57,7 +58,22 @@ export interface TodoListInputProp {
 
 export interface TodoTilesInputProp extends TodoListInputProp {}
 
-export interface TodoTableInputProp extends TodoListInputProp {}
+export interface TodoTableInputProp extends TodoListInputProp {
+  /**
+   * Columns to be rendered in a table
+   *
+   * **Important:** The order of columns in this array directly determines their display order.
+   */
+  columns: TableColumn[];
+  /**
+   * Additional classed for a table
+   */
+  tableClass?: string;
+  /**
+   * Display actions column
+   */
+  showActions: boolean;
+}
 
 export interface TabPanelInputProps {
   tabs: Tab[];
@@ -65,3 +81,9 @@ export interface TabPanelInputProps {
   onTabChange: (key: string) => void;
   label?: string;
 }
+
+export const TodoStatusEnum = {
+  TODO: 1,
+  ACTIVE: 2,
+  DONE: 3,
+} as const;

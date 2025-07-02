@@ -3,9 +3,10 @@ import { useGetTodosQuery } from '../store/todosApi';
 import type { DisplayType, Tab } from '../interfaces/todo.interface';
 import { useSearchParams } from 'react-router-dom';
 import TabPanel from '../features/TabPanel';
-import { TODO_DISPLAY_TABS } from '../constants/constants';
+import { TODO_DISPLAY_TABS, TODO_TABLE_COLUMNS } from '../constants/constants';
 import TodoTiles from '../features/todo/TodoTiles';
 import TodoTable from '../features/todo/TodoTable';
+import type { TableColumn } from '../interfaces/table.interface';
 
 const defaultDisplayType: DisplayType = 'tiles';
 
@@ -16,6 +17,7 @@ export default function TodoListPage() {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const displayTypeArr: Tab[] = TODO_DISPLAY_TABS;
+  const todoTableColumns: TableColumn[] = TODO_TABLE_COLUMNS;
 
   const { data, error, isLoading, isFetching } = useGetTodosQuery({ page, limit });
 
@@ -48,7 +50,14 @@ export default function TodoListPage() {
       />
       <div className="p-4">
         {displayType === 'tiles' && <TodoTiles todos={todos} />}
-        {displayType === 'table' && <TodoTable todos={todos} />}
+        {displayType === 'table' && (
+          <TodoTable
+            todos={todos}
+            columns={todoTableColumns}
+            tableClass="w-full"
+            showActions={true}
+          />
+        )}
       </div>
     </>
   );
