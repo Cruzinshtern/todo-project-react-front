@@ -39,7 +39,7 @@ export interface PaginatedTodosResponse {
 }
 
 export interface TodoListInputProp {
-  todos: Todo[];
+  todos: Todo[] | undefined;
 }
 
 export interface TodoTilesInputProp extends TodoListInputProp {}

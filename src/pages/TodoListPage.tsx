@@ -4,6 +4,8 @@ import type { DisplayType, Tab } from '../interfaces/todo.interface';
 import { useSearchParams } from 'react-router-dom';
 import TabPanel from '../features/TabPanel';
 import { TODO_DISPLAY_TABS } from '../constants/constants';
+import TodoTiles from '../features/todo/TodoTiles';
+import TodoTable from '../features/todo/TodoTable';
 
 const defaultDisplayType: DisplayType = 'tiles';
 
@@ -34,14 +36,18 @@ export default function TodoListPage() {
     setSearchParams(searchParams, { replace: true });
   }, [displayType, searchParams, setSearchParams]);
 
-  // const todos = data?.data;
+  const todos = data?.data;
 
   return (
-    <TabPanel
-      tabs={displayTypeArr}
-      activeTab={displayType}
-      onTabChange={(key) => setDisplayType(key as DisplayType)}
-      label="Display type"
-    />
+    <>
+      <TabPanel
+        tabs={displayTypeArr}
+        activeTab={displayType}
+        onTabChange={(key) => setDisplayType(key as DisplayType)}
+        label="Display type"
+      />
+      {displayType === 'tiles' && <TodoTiles todos={todos} />}
+      {displayType === 'table' && <TodoTable todos={todos} />}
+    </>
   );
 }
