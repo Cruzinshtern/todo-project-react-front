@@ -1,5 +1,5 @@
 import type { NavItem } from '../interfaces/navItem.interface';
-import type { TableColumn } from '../interfaces/table.interface';
+import type { SelectOption, TableColumn } from '../interfaces/table.interface';
 import type { Tab } from '../interfaces/todo.interface';
 
 export const USER_TOKEN: string = 'token';
@@ -35,4 +35,9 @@ export const TODO_TABLE_COLUMNS: TableColumn[] = [
   { key: 'status', value: 'Status' },
   { key: 'created_at', value: 'Created at' },
   { key: 'start_at', value: 'Due date' },
+];
+export const TODO_LIMIT_OPTIONS: SelectOption[] = [
+  { key: '5', value: '5', isDisabled: false },
+  { key: '10', value: '10', isDisabled: false },
+  { key: '20', value: '20', isDisabled: false },
 ];
