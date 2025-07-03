@@ -1,5 +1,3 @@
-import type React from 'react';
-import type { IconBaseProps } from 'react-icons';
 import type { TableColumn } from './table.interface';
 
 export interface CreateTodoRequest {
@@ -39,12 +37,6 @@ export interface Todo {
 
 export interface TodoInputProp {
   todo: Todo;
-}
-
-export interface BadgeInputProp {
-  color: 'blue' | 'yellow' | 'red';
-  size: number;
-  children: React.ReactElement<IconBaseProps>;
 }
 
 export interface PaginatedTodosResponse {

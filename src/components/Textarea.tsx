@@ -1,23 +1,6 @@
 // Use React.TextareaHTMLAttributes to inherit all the standard textarea props
-import React from 'react';
 import { useId } from 'react';
-
-interface TextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
-  /**
-   * TBD
-   */
-  error?: string;
-
-  /**
-   * Additional CSS-classes for textarea.
-   */
-  textareaClassName?: string;
-
-  /**
-   * Additional CSS-classes for errors.
-   */
-  errorClassName?: string;
-}
+import type { TextareaProps } from '../interfaces/customComponents.interface';
 
 export default function Textarea({ error, textareaClassName, id, ...rest }: TextareaProps) {
   const uniqueId = useId();

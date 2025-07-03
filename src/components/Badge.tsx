@@ -1,5 +1,5 @@
 import React from 'react';
-import type { BadgeInputProp } from '../interfaces/todo.interface';
+import type { BadgeInputProp } from '../interfaces/customComponents.interface';
 
 export default function Badge({ color, size, children }: BadgeInputProp) {
   const colors = {

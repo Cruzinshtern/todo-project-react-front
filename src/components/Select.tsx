@@ -1,31 +1,6 @@
 // Use React.SelectHTMLAttributes to inherit all the standard select props
 import React from 'react';
-import type { SelectOption } from '../interfaces/table.interface';
-
-interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
-  /**
-   * TBD
-   */
-  error?: string;
-
-  /**
-   * Additional CSS-classes for the whole select block (label if present and select).
-   */
-  selectClassName?: string;
-
-  /**
-   * Additional CSS-classes for errors.
-   */
-  errorClassName?: string;
-  /**
-   * Array of the select options
-   */
-  options: SelectOption[];
-  /**
-   * Select label to display if necessary
-   */
-  label?: string;
-}
+import type { SelectProps } from '../interfaces/customComponents.interface';
 
 export default function Select({ error, selectClassName, options, label, ...rest }: SelectProps) {
   const selectId = React.useId();

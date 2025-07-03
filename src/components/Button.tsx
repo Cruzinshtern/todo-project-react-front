@@ -1,28 +1,4 @@
-// Use React.ButtonHTMLAttributes to inherit all the standard button props
-import React from 'react';
-
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  /**
-   * button content (text, icons, etc.)
-   */
-  children: React.ReactNode;
-  /**
-   * style buttons (e.g. "primary", "secondary", "danger")
-   */
-  variant?: 'primary' | 'secondary' | 'danger' | 'ghost';
-  /**
-   * determine buttnon style depending on general class
-   */
-  size?: 'sm' | 'md' | 'lg';
-  /**
-   * add more taiwind or other classes
-   */
-  className?: string;
-  /**
-   * set disable status when necessary
-   */
-  disabled?: boolean;
-}
+import type { ButtonProps } from '../interfaces/customComponents.interface';
 
 export default function Button({
   children,

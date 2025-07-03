@@ -6,9 +6,10 @@ import TabPanel from '../features/TabPanel';
 import { TODO_DISPLAY_TABS, TODO_LIMIT_OPTIONS, TODO_TABLE_COLUMNS } from '../constants/constants';
 import TodoTiles from '../features/todo/TodoTiles';
 import TodoTable from '../features/todo/TodoTable';
-import type { SelectOption, TableColumn } from '../interfaces/table.interface';
+import type { TableColumn } from '../interfaces/table.interface';
 import Paginator from '../components/Paginator';
 import Select from '../components/Select';
+import type { SelectOption } from '../interfaces/customComponents.interface';
 
 const defaultDisplayType: DisplayType = 'tiles';
 
@@ -78,7 +79,7 @@ export default function TodoListPage() {
           currentPage={page}
           totalPages={totalPages}
           isLoading={false}
-          onPageChange={(e) => setPage(e)}
+          onPageChange={(e: any) => setPage(e)}
         ></Paginator>
       </div>
     </>

@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
-import type { TooltipProps } from '../interfaces/table.interface';
+import type { TooltipProps } from '../interfaces/customComponents.interface';
 
 export default function Tooltip({
   content,

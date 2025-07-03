@@ -1,4 +1,4 @@
-import type { PaginationInputProps } from '../interfaces/table.interface';
+import type { PaginationInputProps } from '../interfaces/customComponents.interface';
 import Button from './Button';
 
 export default function Paginator({

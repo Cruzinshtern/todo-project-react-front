@@ -1,23 +1,6 @@
 // Use React.InputHTMLAttributes to inherit all the standard input props
-import React from 'react';
 import { useId } from 'react';
-
-interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  /**
-   * TBD
-   */
-  error?: string;
-
-  /**
-   * Additional CSS-classes for input.
-   */
-  inputClassName?: string;
-
-  /**
-   * Additional CSS-classes for errors.
-   */
-  errorClassName?: string;
-}
+import type { InputProps } from '../interfaces/customComponents.interface';
 
 export default function Input({ error, inputClassName, id, ...rest }: InputProps) {
   const uniqueId = useId();
