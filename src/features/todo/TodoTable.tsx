@@ -5,6 +5,7 @@ import type { TableColumn } from '../../interfaces/table.interface';
 import type { Todo, TodoTableInputProp } from '../../interfaces/todo.interface';
 import { formatDate } from '../../helpers/formatDate.helper';
 import { formatStatus } from '../../helpers/formatStatus.helper';
+import Tooltip from '../../components/Tooltip';
 
 export default function TodoTable({
   todos,
@@ -66,15 +67,21 @@ export default function TodoTable({
               {showActions && (
                 <td className="px-6 py-4 border-l border-b border-gray-200">
                   <div className="flex gap-2 justify-center">
-                    <Badge color="blue" size={10}>
-                      <FiEdit />
-                    </Badge>
-                    <Badge color="yellow" size={10}>
-                      <FiBookmark />
-                    </Badge>
-                    <Badge color="red" size={10}>
-                      <FiTrash />
-                    </Badge>
+                    <Tooltip content="Edit" position="top" offset={10}>
+                      <Badge color="blue" size={14}>
+                        <FiEdit />
+                      </Badge>
+                    </Tooltip>
+                    <Tooltip content="Add to favorites" position="top" offset={10}>
+                      <Badge color="yellow" size={14}>
+                        <FiBookmark />
+                      </Badge>
+                    </Tooltip>
+                    <Tooltip content="Delete" position="top" offset={10}>
+                      <Badge color="red" size={14}>
+                        <FiTrash />
+                      </Badge>
+                    </Tooltip>
                   </div>
                 </td>
               )}
