@@ -76,7 +76,14 @@ export const todosApi = createApi({
       query: (id) => ({
         url: `/tasks/${id}`,
         method: 'DELETE',
+        responseHandler: async (response) => {
+          // If status is 200 return Promise.resolve(), since on delete BE returns text/plain
+          if (response.status === 200) {
+            return Promise.resolve();
+          }
+        },
       }),
+
       // Invalidate cache of the list after deletion
       invalidatesTags: [{ type: 'Todos', id: 'LIST' }],
     }),

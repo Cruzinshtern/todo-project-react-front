@@ -65,6 +65,16 @@ export interface TodoTableInputProp extends TodoListInputProp {
    * Display actions column
    */
   showActions: boolean;
+  /**
+   * Delete handle function
+   * @param id Id of a todo to be deleted
+   * @returns
+   */
+  onDeleteTodo: (id: string) => void;
+  /**
+   * Loading state of deletion
+   */
+  isDeleting: boolean;
 }
 
 export interface TabPanelInputProps {

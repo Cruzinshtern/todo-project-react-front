@@ -40,7 +40,7 @@ export interface TooltipProps {
   offset?: number;
 }
 
-export interface BadgeInputProp {
+export interface BadgeInputProp extends React.HTMLAttributes<HTMLDivElement> {
   color: 'blue' | 'yellow' | 'red';
   size: number;
   children: React.ReactElement<IconBaseProps>;

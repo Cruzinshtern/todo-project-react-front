@@ -12,6 +12,8 @@ export default function TodoTable({
   tableClass,
   columns,
   showActions = false,
+  onDeleteTodo,
+  isDeleting,
 }: TodoTableInputProp) {
   return (
     <table className={`divide-y divide-gray-200 border border-gray-300 ${tableClass || ''}`}>
@@ -78,7 +80,7 @@ export default function TodoTable({
                       </Badge>
                     </Tooltip>
                     <Tooltip content="Delete" position="top" offset={10}>
-                      <Badge color="red" size={14}>
+                      <Badge color="red" size={14} onClick={() => onDeleteTodo(todo._id)}>
                         <FiTrash />
                       </Badge>
                     </Tooltip>

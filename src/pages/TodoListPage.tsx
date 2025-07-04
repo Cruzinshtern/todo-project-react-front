@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { useGetTodosQuery } from '../store/todosApi';
+import { useCallback, useEffect, useState } from 'react';
+import { useDeleteTodoMutation, useGetTodosQuery } from '../store/todosApi';
 import type { DisplayType, Tab } from '../interfaces/todo.interface';
 import { useSearchParams } from 'react-router-dom';
 import TabPanel from '../features/TabPanel';
@@ -24,6 +24,7 @@ export default function TodoListPage() {
   const todoLimitSelector: SelectOption[] = TODO_LIMIT_OPTIONS;
 
   const { data, error, isLoading, isFetching } = useGetTodosQuery({ page, limit });
+  const [deleteTodo, { isLoading: isDeleting, error: deleteError }] = useDeleteTodoMutation();
 
   useEffect(() => {
     console.log('todos array:', data?.data);
@@ -44,6 +45,19 @@ export default function TodoListPage() {
 
   const todos = data?.data;
   const totalPages = data?.data ? Math.ceil(data?.count / limit) : 1;
+
+  const handleDeleteTodo = useCallback(
+    async (id: string) => {
+      console.log('fsdflskdfjsdlkjl');
+      try {
+        await deleteTodo(id).unwrap();
+        console.log(`Тудушка с ID ${id} успешно удалена.`);
+      } catch (err) {
+        console.error(`Не удалось удалить тудушку с ID ${id}:`, err);
+      }
+    },
+    [deleteTodo]
+  );
 
   return (
     <>
@@ -72,6 +86,8 @@ export default function TodoListPage() {
               columns={todoTableColumns}
               tableClass="w-full"
               showActions={true}
+              onDeleteTodo={handleDeleteTodo}
+              isDeleting={isDeleting}
             />
           )}
         </div>
